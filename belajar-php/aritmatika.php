@@ -7,7 +7,6 @@ echo "Hitung Luas Persegi <br>";
 echo "Sisi: ".$sisi."<br>";
 echo "Rumus Luas = " .$sisi. " x " .$sisi. "<br>";
 echo "Luas: " .$luas;
-
 echo "<br>---------------------<br>";
 
 // 2pl * 4diameter

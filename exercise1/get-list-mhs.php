@@ -4,7 +4,7 @@
 
     //query ke db
     // $hasil = $mysqli->query("SELECT * FROM mhs");
-    mhs = []
+    //mhs = [];
     //jika ada data
     if(result && $result->num_rows >0){
         while($row = $hasil->fetch_assoc()){
