@@ -44,9 +44,14 @@
           <input type="checkbox" name="hobi[]" value="Membaca"> Menulis
           <input type="checkbox" name="hobi[]" value="Membaca"> Berenang
           <br>
-
+        <!-- Jenis Kelamin -->
+         <label for="">Jenis Kelamin</label>
+         <br>
+         <input type="radio" name="jenis_klmn" value="Laki-laki"> Laki-laki
+         <input type="radio" name="jenis_klmn" value="Perempuans"> Perempuan
+         <br>
          <input type="submit" value="Simpan Data">
-
+          
     </form>
 </body>
 </html>
