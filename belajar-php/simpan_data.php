@@ -11,8 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }else {
         echo "ID: Tidak ada Input <br>";
     }
-    
     $namaMhs = $_POST['nama_mhs'];
+    if (!empty($namaMhs) && is_numeric($namaMhs)){
+        echo "ID: ". htmlspecialchars($namaMhs) . "<br>";
+    }else {
+        echo "ID: Tidak ada Input <br>";
+    }
+    
+
     //$emailMhs= $_POST['email_mhs'];
 
     //Menampilkan Data Msahasiswa
