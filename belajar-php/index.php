@@ -24,10 +24,19 @@
         <label for="email_mhs">Email Mahasiswa</label>
         <br>
         <input type="text" name="email_mhs" placeholder="Masukan Email Mahasiswa">
-
-        <!-- Tombol Data Mahasiswa -->
+        <br>
+        <!-- Program studi -->
+        <label for="">Program Studi</label>
+        <br>
+        <select name="program_studi" >
+            <option value="">Pilih Program Studi</option>
+            <option value="Ilmu Komputer">Ilmu Komputer</option>
+            <option value="Administrasi Publik">Administrasi Publik</option>
+        </select>
+        <!-- Tombol Simpan Data Mahasiswa -->
          <br>
          <input type="submit" value="Simpan Data">
+
     </form>
 </body>
 </html>
