@@ -32,9 +32,19 @@
             <option value="">Pilih Program Studi</option>
             <option value="Ilmu Komputer">Ilmu Komputer</option>
             <option value="Administrasi Publik">Administrasi Publik</option>
+            <option value="Manajemen">Manajemen</option>
+            <option value="Hukum">Hukum</option>
         </select>
         <!-- Tombol Simpan Data Mahasiswa -->
          <br>
+         <!-- Hobi -->
+          <label for="">Hobi</label>
+          <br>
+          <input type="checkbox" name="hobi[]" value="Membaca"> Membaca
+          <input type="checkbox" name="hobi[]" value="Membaca"> Menulis
+          <input type="checkbox" name="hobi[]" value="Membaca"> Berenang
+          <br>
+
          <input type="submit" value="Simpan Data">
 
     </form>
