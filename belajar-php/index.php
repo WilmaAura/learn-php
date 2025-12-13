@@ -10,9 +10,9 @@
 
     <form action="./simpan_data.php" method = "post">
         <!-- Id Mahasiswa -->
-        <label for="id_mhs">ID Mahasiswa</label>
+        <label for="nim">NIM Mahasiswa</label>
         <br>
-        <input type="text" name="id_mhs" placeholder="Masukan ID Mahasiswa">
+        <input type="text" name="nim" placeholder="Masukan NIM Mahasiswa">
         <br>
         
         <!-- Nama Mahasiswa -->
@@ -25,8 +25,19 @@
         <br>
         <input type="text" name="email_mhs" placeholder="Masukan Email Mahasiswa">
         <br>
+         <!-- No Hp -->
+        <label for="no_hp">No Hp</label>
+        <br>
+        <input type="text" name="no_hp" placeholder="Masukan No Hp">
+        <br>
+        
+        <!-- Angkatan -->
+        <label for="angkatan">Angkatan</label>
+        <br>
+        <input type="text" name="angkatan" placeholder="Masukan Nama Angkatan">
+        <br>
         <!-- Program studi -->
-        <label for="">Program Studi</label>
+        <label for="prodi">Program Studi</label>
         <br>
         <select name="program_studi" >
             <option value="">Pilih Program Studi</option>
@@ -35,23 +46,23 @@
             <option value="Manajemen">Manajemen</option>
             <option value="Hukum">Hukum</option>
         </select>
-        <!-- Tombol Simpan Data Mahasiswa -->
          <br>
          <!-- Hobi -->
-          <label for="">Hobi</label>
+          <label for="hobi">Hobi</label>
           <br>
           <input type="checkbox" name="hobi[]" value="Membaca"> Membaca
-          <input type="checkbox" name="hobi[]" value="Membaca"> Menulis
-          <input type="checkbox" name="hobi[]" value="Membaca"> Berenang
+          <input type="checkbox" name="hobi[]" value="Menulis"> Menulis
+          <input type="checkbox" name="hobi[]" value="Berenang"> Berenang
           <br>
         <!-- Jenis Kelamin -->
-         <label for="">Jenis Kelamin</label>
+         <label for="jenis_kelamin">Jenis Kelamin</label>
          <br>
          <input type="radio" name="jenis_klmn" value="Laki-laki"> Laki-laki
-         <input type="radio" name="jenis_klmn" value="Perempuans"> Perempuan
+         <input type="radio" name="jenis_klmn" value="Perempuan"> Perempuan
          <br>
+        <!-- Tombol Simpan Data Mahasiswa -->
          <input type="submit" value="Simpan Data">
-          
+         
     </form>
 </body>
 </html>

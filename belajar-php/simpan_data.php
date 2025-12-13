@@ -1,32 +1,28 @@
 <?php
+   include '../exercise1/config.php';
+   if (isset($_POST['simpan'])){
+        $nim = $_POST['nim'];
+        $nama = $_POST['nama'];
+        $no_hp = $_POST['no_hp'];
+        $emailMhs = $_POST['email_mhs'];
+        $angkatan = $_POST['angkatan'];
+        $prodi = $_POST['prodi'];
+        $hobi = $_POST['hobi'];
+        $jns_kel= $_POST['jenis_kel'];
 
-//pernyataan if yang digunakan untuk memeriksa apakah metode 
-// yang digunakan untuk mengakses halaman ini adalah metode POST
+        $sql_insert = "INSERT INTO mhs VALUES ('$nim', '$nama', '$no_hp' ,'$emailMhs', '$angkatan' , '$hobi', '$jenis_kel')";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    echo "<h1>Data Mahasiswa </h1>";
-    $idMhs = $_POST['id_mhs']; //To collect ID values from input section
-    if (!empty($idMhs) && is_numeric($idMhs)){
-        echo "ID: ". htmlspecialchars($idMhs) . "<br>";
-    }else {
-        echo "ID: Tidak ada Input <br>";
+        if (mysqli->query($sql_insert) == TRUE){
+            echo "Data Mahasiswa berhasil ditambahkan ke database <br>";
+            echo "<a href= 'get_list_mhs.php'>Lihat Daftar</a>";
+        } else {
+            echo "Error" . $sql_insert . "<br>" . $mysqli->error;
+        }
     }
-    $namaMhs = $_POST['nama_mhs'];
-    if (!empty($namaMhs) && is_numeric($namaMhs)){
-        echo "ID: ". htmlspecialchars($namaMhs) . "<br>";
-    }else {
-        echo "ID: Tidak ada Input <br>";
+    else {
+        echo "Akses ditolak. Silakan isi form terlebih dahulu.";
     }
-    
 
-    //$emailMhs= $_POST['email_mhs'];
+    mysqli_close($mysqli)
 
-    //Menampilkan Data Msahasiswa
-    echo "<h1>Data Mahasiswa </h1>"; 
-    echo "ID Mahasiswa: " . htmlspecialchars($idMhs). "<br>"; //Digunakan untuk melindungi aplikasi dari serangan XSS dengan mengonversi karakter khusus HTML menjadi entitas HTML
-    echo "Nama Mahasiswa: " . htmlspecialchars($namaMhs). "<br>";
-    echo "Email Mahasiswa: " . htmlspecialchars($emailMhs). "<br>";
-
-
-}
-
+?>
