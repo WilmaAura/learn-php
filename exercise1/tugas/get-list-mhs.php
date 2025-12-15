@@ -10,10 +10,10 @@
             echo "<td>" . $row["Nama"] . "</td>"; 
             echo "<td>" . $row["Alamat"] . "</td>"; 
             echo "<td>" . $row["Jenis Kelamin"] . "</td>"; 
-            echo "<td>" . $row["Jenis Kelamin"] . "</td>"; 
-            echo "<td>" . $row["Jenis Kelamin"] . "</td>"; 
-
+            echo "<td>" . $row["Agama"] . "</td>"; 
+            echo "<td>" . $row["Tanggal lahir"] . "</td>"; 
             echo "</tr>";
+            
         }
     }
 ?>

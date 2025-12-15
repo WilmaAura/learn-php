@@ -9,9 +9,7 @@
         $prodi = $_POST['prodi'];
         $hobi = $_POST['hobi'];
         $jns_kel= $_POST['jenis_kel'];
-
         $sql_insert = "INSERT INTO mhs VALUES ('$nim', '$nama', '$no_hp' ,'$emailMhs', '$angkatan' , '$hobi', '$jenis_kel')";
-
         if (mysqli->query($sql_insert) == TRUE){
             echo "Data Mahasiswa berhasil ditambahkan ke database <br>";
             echo "<a href= 'get_list_mhs.php'>Lihat Daftar</a>";
