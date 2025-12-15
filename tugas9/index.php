@@ -21,11 +21,11 @@ $result = $conn->query($sql);
     <table>
         <thead>
             <tr>
-                <th>NIM</th>
-                <th>Nama</th>
-                <th>Jurusan</th>
-                <th>Angkatan</th>
-                <th>Aksi</th>
+                <td>NIM</td>
+                <td>Nama</td>
+                <td>Jurusan</td>
+                <td>Angkatan</td>
+                <td>Aksi</td>
             </tr>
         </thead>
         <tbody>
