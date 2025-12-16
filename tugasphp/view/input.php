@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Input Data Mahasiswa Baru</title>
-        <link rel="stylesheet" href="./styleInput.css">
+    <link rel="stylesheet" href="../style/styleInput.css">
+        
     </head>
     <body>
 
@@ -12,10 +13,10 @@
         <a href="index.php" class="back-link">&larr; Kembali ke Daftar Mahasiswa</a>
         <h2>Input Data Mahasiswa Baru</h2>
 
-        <form action="simpan_data.php" method="POST">
+        <form action="simpanData.php" method="POST">
             <div class="form-group">
                 <label for="NIM">NIM:</label>
-                <input type="text" id="NIM" name="NIM" required maxlength="15">
+                <input type="text" id="NIM" name="NIM" required maxlength="100">
             </div>
 
             <div class="form-group">
