@@ -41,7 +41,8 @@ $result = $conn->query($sql);
                     
                     echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
                     
-                    echo "<a href='delete.php?nim=" . $row["NIM"] . "' class='delete' onclick='return confirm(\"Anda yakin ingin menghapus data NIM: " . $row["NIM"] . "?\");'>
+                    echo "<a href='../controller/delete.php?nim=" . $row["NIM"] . 
+                    "'class='delete' onclick='return confirm(\"Anda yakin ingin menghapus data NIM: " . $row["NIM"] . "?\");'>
                             Delete
                           </a>";                    
                     echo "</td>";
