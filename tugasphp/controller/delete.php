@@ -8,11 +8,11 @@ include '../config.php';
 
 if (isset($_GET['nim'])) {
     
-    $nim_to_delete = $_GET['nim'];
+    $deleteNim = $_GET['nim'];
     
-    $nim_to_delete = $conn->real_escape_string($nim_to_delete);
+    $deleteNim = $conn->real_escape_string($deleteNim);
     
-    $sql = "DELETE FROM mhs WHERE NIM = '$nim_to_delete'";
+    $sql = "DELETE FROM mhs WHERE NIM = '$deleteNim'";
 
     if ($conn->query($sql) === TRUE) {
         $conn->close();
