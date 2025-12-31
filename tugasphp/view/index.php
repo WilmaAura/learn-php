@@ -36,7 +36,7 @@ $result = $conn->query($sql);
                     echo "<td>" . $row["NIM"] . "</td>";
                     echo "<td>" . $row["nama"] . "</td>";
                     echo "<td>" . $row["jurusan"] . "</td>";
-                    echo "`<td>" . $row["angkatan"] . "</td>";
+                    echo "<td>" . $row["angkatan"] . "</td>";
                     echo "<td class='actions'>";
                     
                     echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
