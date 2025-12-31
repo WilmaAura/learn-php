@@ -6,8 +6,8 @@
         $nama = $_POST['nama'];
         $jurusan = $_POST['jurusan'];
         $angkatan = $_POST['angkatan'];
+        $sql = "UPDATE mhs SET nama = '$nama', jurusan = '$jurusan', angkatan = '$angkatan'where nim='$nim'";
+         $conn->query($sql);
     }    
-    $sql = "UPDATE mhs SET nama = '$nama', jurusan = '$jurusan', angkatan = '$angkatan'where nim='$nim'";
-
     $conn->close();
 ?>
