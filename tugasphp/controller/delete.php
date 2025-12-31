@@ -6,9 +6,9 @@ error_reporting(E_ALL);
 
 include '../config.php'; 
 
-if (isset($_GET['NIM'])) {
+if (isset($_GET['nim'])) {
     
-    $nim_to_delete = $_GET['NIM'];
+    $nim_to_delete = $_GET['nim'];
     
     $nim_to_delete = $conn->real_escape_string($nim_to_delete);
     
@@ -17,7 +17,7 @@ if (isset($_GET['NIM'])) {
     if ($conn->query($sql) === TRUE) {
         $conn->close();
         
-        header("Location: index.php?status_delete=success");
+        header("Location: ../view/index.php?status_delete=success");
         exit(); 
     } else {
         echo "Error saat menghapus data: " . $conn->error;

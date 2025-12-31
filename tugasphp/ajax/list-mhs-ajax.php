@@ -112,6 +112,19 @@ $result = $conn->query($sql);
                     })
                 }
             })
+            $('#btn-hapus').click(function(e){
+                if(!confirm("Yakin hapus data?")) return;
+                let nim = $(this).data('nim');
+
+                $.ajax({
+                    url: 'mhs_delete_ajax.php',
+                    type: 'GET',
+                    data: {nim: nim},
+                    success: function(res){
+                        location.reload()
+                    } 
+                })
+            })
         </script>
 </body>
 </html>
