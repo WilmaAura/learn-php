@@ -39,7 +39,7 @@ $result = $conn->query($sql);
                     echo "<td>" . $row["angkatan"] . "</td>";
                     echo "<td class='actions'>";
                     
-                    echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
+                    echo "<a href=''../controller/edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
                     
                     echo "<a href='../controller/delete.php?nim=" . $row["NIM"] . 
                     "'class='delete' onclick='return confirm(\"Anda yakin ingin menghapus data NIM: " . $row["NIM"] . "?\");'>
@@ -55,7 +55,7 @@ $result = $conn->query($sql);
         </tbody>
     </table>
 
-        <a href="./input.php">Input data mahasiswa</a>
+    <a href="./input.php">Input data mahasiswa</a>
     <?php
     $conn->close();
     ?>

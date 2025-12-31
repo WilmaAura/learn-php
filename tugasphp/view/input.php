@@ -13,7 +13,7 @@
         <a href="index.php" class="back-link">&larr; Kembali ke Daftar Mahasiswa</a>
         <h2>Input Data Mahasiswa Baru</h2>
 
-        <form action="simpanData.php" method="POST">
+        <form action="../controller/simpanData.php" method="POST">
             <div class="form-group">
                 <label for="NIM">NIM:</label>
                 <input type="text" id="NIM" name="NIM" required maxlength="100">

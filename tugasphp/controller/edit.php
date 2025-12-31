@@ -10,7 +10,4 @@
     $sql = "UPDATE mhs SET nama = '$nama', jurusan = '$jurusan', angkatan = '$angkatan'where nim='$nim'";
 
     $conn->close();
-    
-
-
 ?>
