@@ -1,4 +1,4 @@
-<?php
+`<?php
     include '../config.php';
 
     $nim = $_GET['nim'];
@@ -23,7 +23,7 @@
     <input type="hidden" name="nim" value="<?= $data['NIM'] ?>">
 
     <label>NIM</label><br>
-    <input type="text" value="<?= $data['NIM'] ?>" disabled><br><br>
+    <input type="text" value="<?= $data['NIM'] ?>" required><br><br>
 
     <label>Nama</label><br>
     <input type="text" name="nama" value="<?= $data['nama'] ?>" required><br><br>
