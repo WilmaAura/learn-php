@@ -1,19 +1,10 @@
 <?php
     include '../config.php';
 
-    if(!isset($_GET['nim'])){
-        echo "NIM tidak ditemukan";
-        exit;
-    }
-
     $nim = $_GET['nim'];
 
     $sql = "select * from mhs where NIM = '$nim'";
     $result = $conn->query($sql);
-
-    if($result->num_rows == 0){
-        echo "data mahasiswa tidak ditemukan";
-    }
 
     $data = $result->fetch_assoc();
 ?>
@@ -28,12 +19,11 @@
 
 <h2>Edit Data Mahasiswa</h2>
 
-<form method="POST" action="edit.php">
-    <!-- NIM dikirim tapi tidak bisa diubah -->
+<form method="POST" action="../controller/update.php">
     <input type="hidden" name="nim" value="<?= $data['NIM'] ?>">
 
     <label>NIM</label><br>
-    <input type="text" value="<?= $data['NIM'] ?>" required><br><br>
+    <input type="text" value="<?= $data['NIM'] ?>" disabled><br><br>
 
     <label>Nama</label><br>
     <input type="text" name="nama" value="<?= $data['nama'] ?>" required><br><br>
@@ -45,8 +35,7 @@
     <input type="number" name="angkatan" value="<?= $data['angkatan'] ?>" required><br><br>
 
     <button type="submit">Simpan Perubahan</button>
-    <a href="../view/index.php">Batal</a>
+    <a href="index.php">Batal</a>
 </form>
-
 </body>
 </html>
