@@ -70,7 +70,7 @@ $result = $conn->query($sql);
                     echo "<td>" . $row["NIM"] . "</td>";
                     echo "<td>" . $row["nama"] . "</td>";
                     echo "<td>" . $row["jurusan"] . "</td>";
-                    echo "`<td>" . $row["angkatan"] . "</td>";
+                    echo "<td>" . $row["angkatan"] . "</td>";
                     echo "<td class='actions'>";
                     
                     echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
@@ -94,24 +94,23 @@ $result = $conn->query($sql);
     $conn->close();
     ?>
         <script>
-            $(function(){
-                //Trigger ketika user klik submit
-                // akan ambil data dari id formtambahmhs lalu dikirim ke backend
-                $('#formTambahMhs').submit(function(e)){
-                    e.preventDefault(); //biar ga reload ketika click submit
-                    
+        $('#formTambahMhs').submit(function(e){
+        e.preventDefault();
 
-                    $.ajax({
-                        url: 'mhs_store_ajax.php',
-                        type: 'POST',
-                        data: $(this).serialize(),
-                        dataType: 'json',
-                        success: function(res){
-                            location.reload
-                        }
-                    })
+        $.ajax({
+            url: '../controller/mhs_store_ajax.php',
+            type: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(res){
+                if(res.status === 'success'){
+                    location.reload();
+                } else {
+                    alert(res.msg);
                 }
-            })
+            }
+        });
+    });
             $('#btn-hapus').click(function(e){
                 if(!confirm("Yakin hapus data?")) return;
                 let nim = $(this).data('nim');
@@ -121,7 +120,7 @@ $result = $conn->query($sql);
                     type: 'GET',
                     data: {nim: nim},
                     success: function(res){
-                        location.reload()
+                        location.reload();
                     } 
                 })
             })
