@@ -74,9 +74,7 @@ $result = $conn->query($sql);
                     echo "<td class='actions'>";
                     
                     echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
-                    
-                    echo '<a href="#" class="delete" data-nim="' . $row['NIM'] . '">Delete</a>';
-                 
+                    echo '<a href="#" class="delete" data-nim="' . trim($row['NIM']) . '">Delete</a>';
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -109,7 +107,7 @@ $result = $conn->query($sql);
             }
         });
     });
-            $('#btn-hapus').click(function(e){
+            $('#delete).on('click', '.delete', function(e){
                 e.preventDefault();
                 if(!confirm("Yakin hapus data?")) return;
                 let nim = $(this).data('nim');
