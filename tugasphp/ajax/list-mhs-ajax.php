@@ -75,10 +75,8 @@ $result = $conn->query($sql);
                     
                     echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
                     
-                    echo "<a href='../controller/delete.php?nim=" . $row["NIM"] . 
-                    "'class='delete' onclick='return confirm(\"Anda yakin ingin menghapus data NIM: " . $row["NIM"] . "?\");'>
-                            Delete
-                          </a>";                    
+                    echo '<a href="#" class="delete" data-nim="' . $row['NIM'] . '">Delete</a>';
+                 
                     echo "</td>";
                     echo "</tr>";
                 }
@@ -98,7 +96,7 @@ $result = $conn->query($sql);
         e.preventDefault();
 
         $.ajax({
-            url: '../controller/mhs_store_ajax.php',
+            url: 'mhs_store_ajax.php',
             type: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
@@ -112,6 +110,7 @@ $result = $conn->query($sql);
         });
     });
             $('#btn-hapus').click(function(e){
+                e.preventDefault();
                 if(!confirm("Yakin hapus data?")) return;
                 let nim = $(this).data('nim');
 
@@ -120,7 +119,13 @@ $result = $conn->query($sql);
                     type: 'GET',
                     data: {nim: nim},
                     success: function(res){
-                        location.reload();
+                        if(res.status === 'success'){
+                            $('#row-' + nim).fadeout(300, function(){
+                                $(this).remove();
+                            });
+                        }   else{
+                            alert(res.msg);
+                        }
                     } 
                 })
             })

@@ -1,16 +1,24 @@
-
 <?php
+include '../config.php';
+header('Content-Type: application/json');
 
-include '../config.php'; 
-
-    
-    $del= $_GET['NIM'];
-    $sql = "DELETE FROM mhs WHERE NIM = '$del'";
-
-if (isset($conn)) {
-    $conn->close();
+if (!isset($_GET['nim'])) {
+    echo json_encode(['status' => 'error', 'msg' => 'NIM kosong']);
+    exit;
 }
-echo json_encode([
-    "status" => 'Success'
-]);
-?>
+
+$nim = $_GET['nim'];
+
+$sql = "DELETE FROM mhs WHERE NIM = '$nim'";
+$result = $conn->query($sql);
+
+if ($result && $conn->affected_rows > 0) {
+    echo json_encode(['status' => 'success']);
+} else {
+    echo json_encode([
+        'status' => 'error',
+        'msg' => 'Data tidak ditemukan'
+    ]);
+}
+
+$conn->close();
