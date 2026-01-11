@@ -63,19 +63,21 @@ $result = $conn->query($sql);
         <tbody>
             <?php
             if ($result->num_rows > 0) {
-                // Output data dari setiap baris
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td>" . $row["NIM"] . "</td>";
-                    echo "<td>" . $row["nama"] . "</td>";
-                    echo "<td>" . $row["jurusan"] . "</td>";
-                    echo "<td>" . $row["angkatan"] . "</td>";
-                    echo "<td class='actions'>";
-                    
-                    echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
-                    echo '<a href="#" class="delete" data-nim="' . trim($row['NIM']) . '">Delete</a>';
-                    echo "</td>";
-                    echo "</tr>";
+                  $nim_id = trim($row['NIM']); 
+            
+            echo "<tr id='row-" . $nim_id . "'>"; 
+            echo "<td>" . $row["NIM"] . "</td>";
+            echo "<td>" . $row["nama"] . "</td>";
+            echo "<td>" . $row["jurusan"] . "</td>";
+            echo "<td>" . $row["angkatan"] . "</td>";
+            echo "<td class='actions'>";
+            
+            echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
+            echo '<a href="#" class="delete" data-nim="' . $nim_id . '">Delete</a>';
+            
+            echo "</td>";
+            echo "</tr>";
                 }
             } else {
                 echo "<tr><td colspan='5'>Tidak ada data mahasiswa.</td></tr>";
@@ -88,42 +90,51 @@ $result = $conn->query($sql);
     $conn->close();
     ?>
         <script>
-        $('#formTambahMhs').submit(function(e){
+$(document).ready(function() {
+    $('#formTambahMhs').submit(function(e) {
         e.preventDefault();
         $.ajax({
             url: 'mhs_store_ajax.php',
             type: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
-            success: function(res){
-                if(res.status === 'success'){
-                    location.reload();
+            success: function(res) {
+                if (res.status === 'success') {
+                    alert("Data berhasil disimpan!");
+                    location.reload(); // Reload untuk melihat data baru
+                } else {
+                    alert("Gagal: " + res.msg);
+                }
+            },
+            error: function() {
+                alert("Terjadi kesalahan pada server.");
+            }
+        });
+    });
+
+    $('body').on('click', '.delete', function(e) {
+        e.preventDefault();
+        let nim = $(this).data('nim');
+        
+        if (!confirm("Yakin hapus data dengan NIM " + nim + "?")) return;
+
+        $.ajax({
+            url: 'mhs_delete_ajax.php',
+            type: 'GET',
+            data: { nim: nim },
+            dataType: 'json',
+            success: function(res) {
+                if (res.status === 'success') {
+                    $('#row-' + nim).fadeOut(300, function() {
+                        $(this).remove();
+                    });
                 } else {
                     alert(res.msg);
                 }
             }
         });
     });
-            $('#delete).on('click', '.delete', function(e){
-                e.preventDefault();
-                if(!confirm("Yakin hapus data?")) return;
-                let nim = $(this).data('nim');
-
-                $.ajax({
-                    url: 'mhs_delete_ajax.php',
-                    type: 'GET',
-                    data: {nim: nim},
-                    success: function(res){
-                        if(res.status === 'success'){
-                            $('#row-' + nim).fadeout(300, function(){
-                                $(this).remove();
-                            });
-                        }   else{
-                            alert(res.msg);
-                        }
-                    } 
-                })
-            })
-        </script>
+});
+</script>
 </body>
 </html>
