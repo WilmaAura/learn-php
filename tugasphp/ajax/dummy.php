@@ -73,7 +73,8 @@ $result = $conn->query($sql);
             echo "<td>" . $row["angkatan"] . "</td>";
             echo "<td class='actions'>";
             
-            echo "<a href='edit.php?nim=" . $row["NIM"] . "' class='edit'>Edit</a>";
+            echo '<a href="#" class="edit" data-nim="' . $nim_id . '">Edit</a>';
+
             echo '<a href="#" class="delete" data-nim="' . $nim_id . '">Delete</a>';
             
             echo "</td>";
@@ -85,6 +86,31 @@ $result = $conn->query($sql);
             ?>
         </tbody>
     </table>
+
+    <div id="editBox">
+    <h3>Edit Data Mahasiswa</h3>
+
+    <input type="hidden" id="edit_nim">
+
+    <div>
+        <label>Nama</label><br>
+        <input type="text" id="edit_nama">
+    </div>
+
+    <div>
+        <label>Jurusan</label><br>
+        <input type="text" id="edit_jurusan">
+    </div>
+
+    <div>
+        <label>Angkatan</label><br>
+        <input type="number" id="edit_angkatan">
+    </div>
+
+    <br>
+    <button id="btnUpdate">Update</button>
+    <button id="btnCancel">Batal</button>
+</div>
 
     <?php
     $conn->close();
@@ -134,7 +160,52 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('body').on('click', '.edit', function(e) {
+    e.preventDefault();
+
+    let nim = $(this).data('nim');
+
+    $.ajax({
+        url: 'mhs_get_ajax.php',
+        type: 'GET',
+        data: { nim: nim },
+        dataType: 'json',
+        success: function(res) {
+            $('#edit_nim').val(res.NIM);
+            $('#edit_nama').val(res.nama);
+            $('#edit_jurusan').val(res.jurusan);
+            $('#edit_angkatan').val(res.angkatan);
+
+            $('#editBox').slideDown();
+        }
+    });
 });
+
+
+$('#btnUpdate').click(function() {
+    $.ajax({
+        url: 'mhs_update_ajax.php',
+        type: 'POST',
+        data: {
+            NIM: $('#edit_nim').val(),
+            nama: $('#edit_nama').val(),
+            jurusan: $('#edit_jurusan').val(),
+            angkatan: $('#edit_angkatan').val()
+        },
+        dataType: 'json',
+        success: function(res) {
+            if (res.status === 'success') {
+                alert('Data berhasil diupdate');
+                location.reload(); // boleh reload (aman buat tugas)
+            } else {
+                alert(res.msg);
+            }
+        }
+    });
+});
+});
+
 </script>
 </body>
 </html>
