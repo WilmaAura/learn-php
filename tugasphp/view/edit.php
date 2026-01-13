@@ -1,4 +1,4 @@
-`<?php
+<?php
     include '../config.php';
 
     $nim = $_GET['nim'];

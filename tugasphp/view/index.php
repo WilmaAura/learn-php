@@ -10,7 +10,7 @@ $result = $conn->query($sql);
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale1=1.0">
     <title>Daftar Mahasiswa - Listing Data</title>
     <link rel="stylesheet" href="../style/style.css">
 </head>
@@ -18,7 +18,7 @@ $result = $conn->query($sql);
 
     <h2 style="text-align: center;">Daftar Data Mahasiswa</h2>
     <table>
-        <thead>
+        <thead>2
             <tr>
                 <th>NIM</th>
                 <th>Nama</th>
