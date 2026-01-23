@@ -15,7 +15,7 @@ $_SESSION['login'] = true;
 <body class="bg-gray-50 text-gray-800">
 
 <nav class="bg-blue-800 text-white p-4 shadow-md flex justify-between items-center">
-  <div class="fixed flex items-center gap-2">
+  <div class="flex items-center gap-2">
     <span class="font-bold tracking-wider text-lg">INPUT KRS v2.1</span>
   </div>
   <div class="flex items-center gap-4">

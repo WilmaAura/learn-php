@@ -13,7 +13,7 @@ if(isset($_POST['update'])){
     if(mysqli_query($conn, $sql_update)){
         mysqli_query($conn, "DELETE FROM berita_kategori WHERE berita_id = $id");
         
-        //Masukkan relasi kategori yang baru pakai perulangan FOR
+        //Masukkan relasi kategori yang baru pakai perulangan
         $count = count($kategori);
         for($i = 0; $i < $count; $i++){
             $id_kat = $kategori[$i];

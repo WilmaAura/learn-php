@@ -18,7 +18,7 @@ $result = $conn->query($sql);
 
     <h2 style="text-align: center;">Daftar Data Mahasiswa</h2>
     <table>
-        <thead>2
+        <thead>
             <tr>
                 <th>NIM</th>
                 <th>Nama</th>

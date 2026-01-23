@@ -25,3 +25,5 @@ create table berita_kategori (
 );
 
 select judul, isi, penulis FROM berita;
+
+INSERT INTO kategori (nama_kategori) VALUES ('Promo'), ('Event'), ('Hot News'), ('Tournament');
