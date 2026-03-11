@@ -1,12 +1,13 @@
 <?php
 class mhs{
     private $nim, $matkul;
-    public $nama; # Ubah menjadi public
+    public $nama;
     public function setData($nim, $nama, $matkul){
         $this->nim = $nim;  
         $this->nama = $nama;  
         $this->matkul = $matkul;  
     }
+
     public function getData(){
         return [
             $this->nim,
