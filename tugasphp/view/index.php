@@ -57,7 +57,7 @@ $result = $conn->query($sql);
 
     <a href="./input.php">Input data mahasiswa</a>
     <?php
-    $conn->close();
+        $conn->close();
     ?>
 
 </body>
