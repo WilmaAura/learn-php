@@ -1,5 +1,5 @@
 <?php
-class mhsTransfer extends mhs{
+class mhsTransfer extends mhs{ #Inheriance
     private $daftar_nilai, $ipk = 0, $ttl_sks = 0, $ttl_bobot= 0;
     private $bobot = ['A' => 4, 'B' => 3, 'C' =>2];
 

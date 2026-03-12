@@ -3,7 +3,7 @@ class mhs{
     # contructor
     private $nim, $matkul, $nama, $tgl_lahir;
     private $umur;
-    protected $status; # Ganti menjadi protected agar bisa diakses oleh child class
+    protected $status; # Ganti menjadi protected agar parent var bisa diakses oleh child class
 
     public function __construct(){
         $this->status = "Aktif";
